@@ -1,0 +1,42 @@
+.borderless>tbody>tr>td{
+	border: none;
+}
+
+h1{
+	font-family: 'Titillium Web', sans-serif;
+	color:white;
+}
+
+#box1{
+	font-family: 'Titillium Web', sans-serif;
+	color:#ffcc80 ;
+}
+.tmp{
+	color: #eeeeee ;
+}
+#weatherWells{
+	margin-top: 20px;
+}
+
+.well{
+	padding:5px; 
+	opacity: 0.6;
+	font-size: 15px;
+	color:#ffc107;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+.loc{
+	font-family:'Titillium Web', sans-serif;
+}
+
+#location{
+	color:#ffc107;
+}
+#weatherBox{
+		font-size: 30px;
+}
+
+.footer-below{
+	margin-top: 20px;
+}
