@@ -30,7 +30,7 @@
 				navigator.geolocation.getCurrentPosition(function(position){
 					 lat = position.coords.latitude;
 					 lon = position.coords.longitude;
-					$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=imperial"+"&APPID=9421d4164cde7418ae7d2f69d8c65bfd",function(response){
+					$.getJSON("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=imperial"+"&APPID=9421d4164cde7418ae7d2f69d8c65bfd",function(response){
 							
 							console.log(response);
 							var tempF = Math.round(response.main.temp);
@@ -51,7 +51,7 @@
 							var windSpd = Math.round(response.wind.speed);
 							var windDr = Math.round((response.wind.deg-11.25) / 22.5);
 							var windCompass = windDirNames[windDr];
-							var weatherIcn = "http://openweathermap.org/img/w/"+response.weather[0].icon+".png"
+							var weatherIcn = "https://openweathermap.org/img/w/"+response.weather[0].icon+".png"
 						 	 $("#description").html(weatherStatus.substr(0,1).toUpperCase()+weatherStatus.substr(1));
 						 	 $("#box1").html("<img src="+weatherIcn+"></img>"+"<br>"+day+"<br>"+month+" "+date);
 						 	 // $("#icon").html("<img src="+weatherIcn+"></img>");
