@@ -30,7 +30,7 @@
 				navigator.geolocation.getCurrentPosition(function(position){
 					 lat = position.coords.latitude;
 					 lon = position.coords.longitude;
-					$.getJSON("api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=imperial"+"&APPID=9421d4164cde7418ae7d2f69d8c65bfd",function(response){
+					$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=imperial"+"&APPID=9421d4164cde7418ae7d2f69d8c65bfd",function(response){
 							
 							console.log(response);
 							var tempF = Math.round(response.main.temp);
