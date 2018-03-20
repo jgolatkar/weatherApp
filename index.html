@@ -36,9 +36,9 @@
 					 lat = position.coords.latitude;
 					 lon = position.coords.longitude;
 
-					$.getJSON("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=imperial"+"&APPID=9421d4164cde7418ae7d2f69d8c65bfd",function(response){
+					$.getJSON("https://api.darksky.net/forecast/2e6f068eb8e6f51b6c42359836691460/"+lat+","+lon+"?units=us",function(response){
 							
-							var tempF = Math.round(response.main.temp);
+							var tempF = Math.round(response.currently.temperature);
 							var tempC = Math.round((tempF - 32) * 5 / 9);
 							var rain = response.weather[0].main.toLowerCase();
 							if(tempF < 50){
@@ -52,19 +52,20 @@
 							else{
 								$("body").css('background-image', 'url(' + "img/hot.jpg" + ')');
 							}
-							var weatherStatus=response.weather[0].description;
-							var windSpd = Math.round(response.wind.speed);
-							var windDr = Math.round((response.wind.deg-11.25) / 22.5);
-							var windCompass = windDirNames[windDr];
-							var weatherIcn = "https://openweathermap.org/img/w/"+response.weather[0].icon+".png"
-						 	 $("#description").html(weatherStatus.substr(0,1).toUpperCase()+weatherStatus.substr(1));
+							var weatherStatus=response.currently.summary;
+							var windSpd = Math.round(response.currently.windSpeed);
+							//var windDr = Math.round((response.currently.deg-11.25) / 22.5);
+							//var windCompass = windDirNames[windDr];
+							//var weatherIcn = "https://openweathermap.org/img/w/"+response.weather[0].icon+".png"
+						 	 //$("#description").html(weatherStatus.substr(0,1).toUpperCase()+weatherStatus.substr(1));
+						 	 $("#description").html(weatherStatus);
 						 	 $("#box1").html("<img src="+weatherIcn+"></img>"+"<br>"+day+"<br>"+month+" "+date);
 						 	 // $("#icon").html("<img src="+weatherIcn+"></img>");
 						 	 $("#tempFh").html(tempF+"&#176;"+" F");
 						 	 $("#tempCl").html(tempC+"&#176;"+ " C");
-						 	 $("#location").html(response.name);
+						 	 $("#location").html(response.timezone);
 						 	 // $("#date").html(day+"<br>"+month+" "+date);
-						 	 $("#wind").html(windCompass+" "+windSpd+" kph");
+						 	 //$("#wind").html(windCompass+" "+windSpd+" kph");
 
 						 	 $("#tempFh").addClass('animated infinite pulse');
 						 	 $("#tempCl").addClass('animated infinite pulse');
